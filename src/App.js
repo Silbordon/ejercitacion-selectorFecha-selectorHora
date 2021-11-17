@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import {DatePicker, TimePicker, DateTimePicker} from '@material-ui/pickers';
+
 
 function App() {
+
+  const [fechaSeleccionada, setFechaSeleccionada] = useState(new Date())
+  console.log(fechaSeleccionada);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='contenedor'>
+      <div className='grupo'>
+        <label>FECHA</label>
+        <DatePicker 
+          value={fechaSeleccionada}
+          onChange={setFechaSeleccionada}
+        />
+      </div>
+
+      <div className='grupo'>
+        <label>HORA</label>
+        <TimePicker 
+          value={fechaSeleccionada}
+          onChange={setFechaSeleccionada}
+        />
+      </div>
+
+      <div className='grupo'>
+        <label>FECHA y HORA</label>
+        <DateTimePicker 
+          value={fechaSeleccionada}
+          onChange={setFechaSeleccionada}
+        />
+      </div>
     </div>
   );
 }
